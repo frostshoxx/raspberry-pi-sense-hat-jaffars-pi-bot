@@ -67,7 +67,6 @@ while command != 'e':
     # print('Setting up greeters')
     status_greet_words = ['Hello','Hi','Hey', 'Heya']
     status_readers = ['friends','pals','earthlings','dawgs','homies']
-    status_greeting = random.choice(status_greet_words) + ', ' + random.choice(status_readers) + '! '
     
     # Prompt menu option
     print('\n\n\n\n\n\n\n\n\n\n') # Throw a bunch of new line to move the menu down from previous texts
@@ -96,7 +95,8 @@ while command != 'e':
                     color = Color(color_input)
                     speak("Here is " + color_input)
                     sense.clear(color.rgb_bytes)
-                    if enable_cheerlights == True:                        
+                    if enable_cheerlights == True:
+                        status_greeting = random.choice(status_greet_words) + ', ' + random.choice(status_readers) + '! '
                         message = status_greeting + status_date_time + "Please set #cheerlights to " + color_input
                         print(message)
                         twitter.update_status(message)
@@ -215,6 +215,7 @@ while command != 'e':
             time.sleep(1)
 
         #message = status_greeting + status_date_time + status_pi_temp + status_room + status_orientation_rad + status_footer
+        status_greeting = random.choice(status_greet_words) + ', ' + random.choice(status_readers) + '! '
         message = status_greeting + status_date_time + status_pi_temp + status_room + status_footer
         print(message)
         twitter.update_status(message)        
