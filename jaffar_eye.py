@@ -36,8 +36,11 @@ def send_reply():
 
 # Start the program loop
 while 1:
-    take_picture()
-    send_reply()            
+    try:
+        take_picture()
+        send_reply()
+    except:
+        print("There was some issue with Jaffar's Eye")
     time.sleep(1800)
 
 
