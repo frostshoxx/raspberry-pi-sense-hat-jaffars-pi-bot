@@ -17,10 +17,14 @@ auth.set_access_token(secrets['access_token'], secrets['access_token_secret'])
 twitter = tweepy.API(auth)
 workDir = "/home/pi/Documents/Projects/TweeterBot"
 path = workDir + "/jaffareye.JPG"    
-camera = PiCamera()
 
-def take_picture():   
+def take_picture():
+    print('Warming up Pi Camera')
+    camera = PiCamera()
+    time.sleep(2)
+    print('Taking a photo')
     camera.capture(path)
+    camera.close()
     
 def send_reply():    
     status_greet_words = ['Hello','Hi','Hey', 'Heya', 'Greetings']
@@ -41,6 +45,6 @@ while 1:
         send_reply()
     except:
         print("There was some issue with Jaffar's Eye")
-    time.sleep(1800)
+    time.sleep(900)
 
 
